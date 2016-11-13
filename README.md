@@ -1,2 +1,2 @@
-# postit-server
+# post-it-server
 CalHacks 2016

@@ -1,9 +1,9 @@
 {
-  "name": "postit-server",
+  "name": "post-it-server",
   "version": "1.0.0",
   "main": "src/index.coffee",
   "repository": {
-    "url": "git@github.com:metakirby5/postit-server.git",
+    "url": "git@github.com:metakirby5/post-it-server.git",
     "type": "git"
   },
   "author": "Ethan Chan <metakirby5@gmail.com>",
