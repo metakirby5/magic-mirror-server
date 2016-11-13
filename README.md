@@ -1,2 +1,2 @@
-# post-it-server
+# magic-mirror-server
 CalHacks 2016
