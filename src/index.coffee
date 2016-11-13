@@ -2,9 +2,6 @@ bodyParser = require 'body-parser'
 cors = require 'cors'
 module.exports = app = (require 'express')()
 
-DB =
-  'posts': []
-
 app
   .set 'view engine', 'pug'
   .set 'views', "#{__dirname}/views"
@@ -14,18 +11,39 @@ app
 app.get '/', (req, res) ->
   res.render('index')
 
+POST_DB =
+  'posts': []
+
 app.get '/post-it-form', (req, res) ->
   res.render('post_it_form')
 
 app.route '/post-it'
   .get (req, res) ->
-    res.json(DB)
+    res.json(POST_DB)
   .post (req, res) ->
-    DB.posts.push
+    POST_DB.posts.push
       title: req.body.title
       body: req.body.body
       list: req.body.list?
     res.redirect '/post-it-form'
   .delete (req, res) ->
-    DB.posts = []
+    POST_DB.posts = []
+    res.sendStatus 204
+
+QUEUE = []
+
+app.get '/queue-form', (req, res) ->
+  res.render('queue_form', {queue: QUEUE})
+
+app.route '/queue'
+  .get (req, res) ->
+    if QUEUE.length
+      res.json({'url': QUEUE.pop()})
+    else 
+      res.json({'url': ''})
+  .post (req, res) ->
+    QUEUE.push req.body.url
+    res.redirect '/queue-form'
+  .delete (req, res) ->
+    QUEUE.queue = []
     res.sendStatus 204
