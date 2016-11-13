@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+require('coffee-script/register')
+var app = require('../src/index.coffee')
+
+app.listen(3000, function() {
+  console.log("listening on 3000")
+})
