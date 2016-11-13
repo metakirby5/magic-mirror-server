@@ -42,8 +42,8 @@ app.route '/queue'
     else 
       res.json({'url': ''})
   .post (req, res) ->
-    QUEUE.push req.body.url
+    QUEUE.unshift req.body.url
     res.redirect '/queue-form'
   .delete (req, res) ->
-    QUEUE.queue = []
+    QUEUE = []
     res.sendStatus 204

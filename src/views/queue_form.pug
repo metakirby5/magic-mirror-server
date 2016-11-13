@@ -2,18 +2,14 @@ meta(name='viewport' content='width=device-width, initial-scale=1')
 link(rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
 
-style.
-  #delete {
-    margin-left: 1rem;
-  }
-
 title Queue
 
 h2 Submit a Youtube URL!
 form(action='/queue' method='post')
   input.u-full-width(type='text' name='url' placeholder='Youtube URL' required)
-  input.button-primary(type='submit' value='Submit')
-  button#delete Delete all
+  input.button-primary.u-full-width(type='submit' value='Submit')
+
+button#delete.u-full-width Delete all
 
 ul
   each val in queue.slice(0).reverse()
@@ -23,6 +19,9 @@ script.
   $('#delete').click(function() {
     $.ajax({
       url: '/queue',
-      type: 'DELETE'
+      type: 'DELETE',
+      success: function() {
+        location.reload()
+      }
     })
   })
