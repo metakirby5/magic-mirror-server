@@ -1,7 +1,7 @@
 {
   "name": "postit-server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.coffee",
   "repository": {
     "url": "git@github.com:metakirby5/postit-server.git",
     "type": "git"
@@ -9,7 +9,9 @@
   "author": "Ethan Chan <metakirby5@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "coffee-script": "^1.11.1",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "pug": "^2.0.0-beta6"
   }
 }

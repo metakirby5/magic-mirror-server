@@ -1,0 +1,8 @@
+link(rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css')
+title Post-its
+
+h2 Submit a Post-it!
+form(action='/post-it' method='post')
+  input.u-full-width(type='text', name='title', placeholder='Post-it Title')
+  textarea.u-full-width(name='body', placeholder='Post-it Body')
+  input.button-primary.u-full-width(type='submit', value='Sumbit')
