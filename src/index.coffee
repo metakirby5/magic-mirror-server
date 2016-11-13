@@ -9,7 +9,7 @@ app
   .set 'view engine', 'pug'
   .set 'views', "#{__dirname}/views"
   .use bodyParser.urlencoded extended: true
-  .use cors
+  .use cors()
 
 app.get '/', (req, res) ->
   res.render('index')
