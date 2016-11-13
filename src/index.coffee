@@ -24,6 +24,7 @@ app.route '/post-it'
     DB.posts.push
       title: req.body.title
       body: req.body.body
+      list: req.body.list?
     res.redirect '/post-it-form'
   .delete (req, res) ->
     DB.posts = []

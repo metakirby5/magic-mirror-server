@@ -1,12 +1,32 @@
 link(rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+
+style.
+  .flexed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .flexed > * {
+    margin-right: 1rem;
+  }
+  .flexed > *:last-child {
+    margin-right: 0;
+  }
+  #form-submit {
+    flex: 1;
+  }
+
 title Post-its
 
 h2 Submit a Post-it!
 form(action='/post-it' method='post')
   input.u-full-width(type='text' name='title' placeholder='Post-it Title' required)
   textarea.u-full-width(name='body' placeholder='Post-it Body' required)
-  input.button-primary.u-full-width(type='submit' value='Submit')
+  .flexed
+    input#form-submit.button-primary(type='submit' value='Submit')
+    input(type='checkbox' name='list' )
+    label(for='list') List
 button#delete.u-full-width Delete all
 
 script.
