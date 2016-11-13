@@ -1,4 +1,5 @@
 bodyParser = require 'body-parser'
+cors = require 'cors'
 module.exports = app = (require 'express')()
 
 DB =
@@ -8,6 +9,7 @@ app
   .set 'view engine', 'pug'
   .set 'views', "#{__dirname}/views"
   .use bodyParser.urlencoded extended: true
+  .use cors
 
 app.get '/', (req, res) ->
   res.render('index')
