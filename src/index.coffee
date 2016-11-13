@@ -25,3 +25,6 @@ app.route '/post-it'
       title: req.body.title
       body: req.body.body
     res.redirect '/post-it-form'
+  .delete (req, res) ->
+    DB.posts = []
+    res.sendStatus 204
